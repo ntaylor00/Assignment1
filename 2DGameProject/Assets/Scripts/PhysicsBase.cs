@@ -7,6 +7,7 @@ public class PhysicsBase : MonoBehaviour
     public Vector2 velocity;
     public float gravityFactor;
     public float desiredx;
+    public float desiredy;
     public bool grounded;
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,7 @@ public class PhysicsBase : MonoBehaviour
         Vector2 acceleration = 9.81f * Vector2.down * gravityFactor;
         velocity += acceleration * Time.fixedDeltaTime;
         velocity.x = desiredx;
+        //velocity.y = desiredy;
         Vector2 move = velocity * Time.fixedDeltaTime;
         Movement(new Vector3(move.x, 0), true);
         Movement(new Vector2(0, move.y), false);

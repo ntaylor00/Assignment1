@@ -22,9 +22,9 @@ public class PlayerCont : PhysicsBase
 
     public void Collide(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Lethal"))
+        if (other.gameObject.CompareTag("Death"))
         {
-            Debug.Log("DED");
+            Debug.Log("DED"); //FIXME --> lose a life, if all three lost then restart menu
         }
     }
 

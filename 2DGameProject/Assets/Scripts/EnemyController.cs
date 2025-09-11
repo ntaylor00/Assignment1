@@ -8,6 +8,10 @@ public class EnemyController : PhysicsBase
     void Start()
     {
         desiredx = 3;
+        /*
+        if VerticalEnemy
+        desiredy = 3;
+        */
     }
 
     // Update is called once per frame
@@ -20,4 +24,9 @@ public class EnemyController : PhysicsBase
     {
         desiredx = -desiredx; // If it collides, move opposite direction
     }
+    //if VerticalEnemy -- delete
+    /*public override void CollideVertical(Collider2D other)
+    {
+        desiredy = -desiredy;
+    }*/
 }
