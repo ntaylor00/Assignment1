@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour
     private float Move;
 
     public float speed;
-    public float jump2;
+    public float jump;
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
@@ -42,10 +42,9 @@ public class playerMovement : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isGrounded()) // && grounded
             {
-                rb.AddForce(new Vector2(rb.velocity.x, jump2 * 10));
+                rb.AddForce(new Vector2(rb.velocity.x, jump * 10));
             }
         }
-        
     }
 
     // Player Movement Video
@@ -70,6 +69,14 @@ public class playerMovement : MonoBehaviour
     {
         isDead = true;
         FindObjectOfType<LevelManager>().Restart();
+    }
+
+    public void ResetPlayer()
+    {
+        /*Move = 0;
+        speed = 0;
+        jump = 0;*/
+        isDead = false;
     }
 
     // private void OnCollisionEnter2D(Collision2D other)

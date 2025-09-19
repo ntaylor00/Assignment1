@@ -26,7 +26,7 @@ public class LifeCount : MonoBehaviour
         // If we run out of lives we lose the game
         if(livesRemaining == 0)
         {
-            FindObjectOfType<Player>().Die();
+            FindObjectOfType<playerMovement>().Die();
             //other.gameObject.CompareTag("Player") FIXME
         }
     }
