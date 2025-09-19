@@ -85,7 +85,8 @@ public class playerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Prize"))
         {
-            pr.prizeCount++;
+            Destroy(other.gameObject);
+            pr.coinCount++;
         }
     }
 

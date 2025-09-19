@@ -1,12 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //public enum PickableType { SCORE, ITEM }
 
 public class Collectible : MonoBehaviour
 {
-    public int prizeCount;
+    public int coinCount;
+    public Text coinText;
+    
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+        coinText.text = "Coins: " + coinCount.ToString() + "/5";
+    }
     /*[SerializedField] private PickableType type;
     [SerializedField] private int points = 0;
     [SerializedField] private ItemsSC item = null;
@@ -33,12 +45,12 @@ public class Collectible : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
             isCollected = true;
     }*/
-    private void OnTriggerEnter2D(Collider2D other)
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             // Add points or other effects here
             Destroy(gameObject); // Remove the collectible from the scene
         }
-    }
+    }*/
 }
