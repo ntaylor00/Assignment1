@@ -2,8 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//public enum PickableType { SCORE, ITEM }
+
 public class Collectible : MonoBehaviour
 {
+    public int prizeCount;
+    /*[SerializedField] private PickableType type;
+    [SerializedField] private int points = 0;
+    [SerializedField] private ItemsSC item = null;
+    bool isCollected = false;
+
+    private void Update()
+    {
+        is (isCollected)
+        {
+            if (type.Equals(PickableType.SCORE))
+            {
+                GameManager.instance.addScorePoints(points);
+            }
+            else if (type.Equals(PickableType.ITEM))
+            {
+                Inventory.instance.AddItem(item);
+            }
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {   
+        if (collision.gameObject.tag.Equals("Player"))
+            isCollected = true;
+    }*/
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

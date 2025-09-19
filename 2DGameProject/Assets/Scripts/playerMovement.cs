@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
     public float castDistance;
     public LayerMask groundLayer;
 
+    public Collectible pr;
+
     bool grounded;
 
     bool isDead = false;
@@ -77,6 +79,14 @@ public class playerMovement : MonoBehaviour
         speed = 0;
         jump = 0;*/
         isDead = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Prize"))
+        {
+            pr.prizeCount++;
+        }
     }
 
     // private void OnCollisionEnter2D(Collision2D other)
