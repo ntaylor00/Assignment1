@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour
     public float castDistance;
     public LayerMask groundLayer;
 
-    public Collectible pr;
+    public Collectible cc;
 
     bool grounded;
 
@@ -86,7 +86,7 @@ public class playerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Prize"))
         {
             Destroy(other.gameObject);
-            pr.coinCount++;
+            cc.coinCount++;
         }
     }
 

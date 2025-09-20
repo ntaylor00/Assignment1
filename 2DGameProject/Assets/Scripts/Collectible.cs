@@ -20,9 +20,8 @@ public class Collectible : MonoBehaviour
         coinText.text = "Coins: " + coinCount.ToString() + "/5";
         if(coinCount == 5)
         {
-            //Restart -- Die but not death menu
-            //SceneManager.LoadScene("DeathMenu");
-            //FindObjectOfType<playerMovement>().Die();
+            //Restart
+            FindObjectOfType<LevelManager>().DeathMenu();
         }
     }
     /*[SerializedField] private PickableType type;
