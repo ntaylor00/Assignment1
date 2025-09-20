@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     {
         playerInitPosition = FindObjectOfType<playerMovement>().transform.position;
     }
+
     public void Restart()
     {
         // 1 - Restart the scene
@@ -21,6 +22,11 @@ public class LevelManager : MonoBehaviour
         // Reset player movement speed
         
         // Reset life count
+    }
+
+    public void DeathMenu()
+    {
+        SceneManager.LoadScene("DeathMenu");
     }
 
     /*public void Backtrack()

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -71,9 +70,7 @@ public class playerMovement : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        SceneManager.LoadScene("DeathMenu");
-        //FindObjectOfType<DeathMenu>().DeathMenu();
-        //FindObjectOfType<LevelManager>().Restart();
+        FindObjectOfType<LevelManager>().DeathMenu();
     }
 
     public void ResetPlayer()
