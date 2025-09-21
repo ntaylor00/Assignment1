@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
     public float castDistance;
     public LayerMask groundLayer;
 
+    private Animator anim;
+
     public Collectible cc;
 
     bool grounded;
@@ -24,6 +26,7 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -45,6 +48,15 @@ public class playerMovement : MonoBehaviour
             if (Input.GetButtonDown("Jump") && isGrounded()) // && grounded
             {
                 rb.AddForce(new Vector2(rb.velocity.x, jump * 10));
+            }
+
+            if(Move != 0)
+            {
+                anim.SetBool("isRunning", true);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
             }
         }
     }
