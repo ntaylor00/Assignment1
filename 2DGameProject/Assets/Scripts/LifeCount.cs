@@ -31,6 +31,12 @@ public class LifeCount : MonoBehaviour
         }
     }
 
+    public void AddLife()
+    {
+        livesRemaining++;
+        lives[livesRemaining].enabled = true;
+    }
+
     private void Update()
     {
         //if(Input.GetKeyDown(KeyCode.Return))

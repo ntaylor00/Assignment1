@@ -17,7 +17,10 @@ public class playerMovement : MonoBehaviour
 
     private Animator anim;
 
+    private bool isFacingRight;
+
     public Collectible cc;
+    //public LifeCount extraLife;
 
     bool grounded;
 
@@ -26,6 +29,7 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isFacingRight = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -58,7 +62,28 @@ public class playerMovement : MonoBehaviour
             {
                 anim.SetBool("isRunning", false);
             }
+
+            anim.SetBool("isJumping", !isGrounded());
+
+            if(!isFacingRight && Move > 0)
+            {
+                // If looking left but moving right, flip
+                Flip();
+            }
+            else if (isFacingRight && Move < 0)
+            {
+                // If looking right but moving left, flip
+                Flip();
+            }
         }
+    }
+
+    public void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 
     // Player Movement Video
@@ -99,6 +124,12 @@ public class playerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
             cc.coinCount++;
+        }
+        if (other.gameObject.CompareTag("ExtraLife"))
+        {
+            // Destroy green coin and add one to life count
+            Destroy(other.gameObject);
+            FindObjectOfType<LifeCount>().AddLife();
         }
     }
 
