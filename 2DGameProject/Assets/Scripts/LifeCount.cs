@@ -33,8 +33,8 @@ public class LifeCount : MonoBehaviour
 
     public void AddLife()
     {
-        livesRemaining++;
         lives[livesRemaining].enabled = true;
+        livesRemaining++;
     }
 
     private void Update()

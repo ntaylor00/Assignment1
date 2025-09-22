@@ -18,11 +18,11 @@ public class Collectible : MonoBehaviour
     void Update()
     {
         coinText.text = "Coins: " + coinCount.ToString() + "/5";
-        if(coinCount == 5)
+        /*if(coinCount == 5)
         {
             //Restart
             FindObjectOfType<LevelManager>().DeathMenu();
-        }
+        }*/
     }
     /*[SerializedField] private PickableType type;
     [SerializedField] private int points = 0;

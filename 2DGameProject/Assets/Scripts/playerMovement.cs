@@ -29,6 +29,7 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //FindObjectOfType<ExtraLife>().image = false;
         isFacingRight = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -130,6 +131,10 @@ public class playerMovement : MonoBehaviour
             // Destroy green coin and add one to life count
             Destroy(other.gameObject);
             FindObjectOfType<LifeCount>().AddLife();
+        }
+        if (other.gameObject.CompareTag("ExitDoor"))
+        {
+            FindObjectOfType<LevelManager>().DeathMenu();
         }
     }
 
